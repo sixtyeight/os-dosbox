@@ -23,6 +23,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 COPY docker-entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 
+VOLUME /drives
+
 # During startup we need to prepare connection to X11-Server container
 USER xclient
 ENTRYPOINT ["/entrypoint.sh"]
